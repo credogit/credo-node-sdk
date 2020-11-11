@@ -28,36 +28,21 @@ const environment = process.env.NODE_ENV
 
 const credo = new Credo(APIKEY, environment)
 
-credo.initiatePayments({
-  amount: 0,
+let payment = await credo.initiatePayments({
+  amount: 100,
   currency: "NGN",
-  redirectUrl: "https://credo.com/callback",
+  redirectUrl: "https://mywebsites.com/callback",
   transRef: "string",
   paymentOptions: "CARD,BANK,USSD",
-  customerEmail: "string",
-  customerName: "string",
-  customerPhoneNo: "string"
-}).then(data => {
-  console.log(data)
-}, err => {
-  console.log(err)
+  customerEmail: "customer@something.com",
+  customerName: "John Doe",
+  customerPhoneNo: "+234 813 000 000"
 })
 
-credo.initiatePayments({
-  amount: 0,
-  currency: "NGN",
-  redirectUrl: "https://credo.com/callback",
-  transRef: "string",
-  paymentOptions: "CARD,BANK,USSD",
-  customerEmail: "string",
-  customerName: "string",
-  customerPhoneNo: "string"
-}).then(data => {
-  console.log(data)
-}, err => {
-  console.log(err)
-})
-
+if(payment)
+	//do payments here
+else
+	//throw error here
 
 ```
 
@@ -82,8 +67,8 @@ MIT
 # Credits
 
 
-[npm-image]: https://img.shields.io/npm/v/paystack-node.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/paystack-node
+[npm-image]: https://img.shields.io/endpoint?logo=npm
+[npm-url]: https://www.npmjs.com/package/credo-node
 
 [travis-image]: https://img.shields.io/travis/stitchng/paystack/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/stitchng/paystack
+[travis-url]: https://travis-ci.org/github/Moses-Bassey/Credo-node
