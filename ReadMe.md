@@ -13,7 +13,7 @@ This project provides an easy-to-use object-oriented API to consume endpoints on
 
 >Install from the NPM Registry
 ```bash
-	$ npm i --save paystack-node
+	$ npm i --save credo-node
 ```
 
 # Usage
