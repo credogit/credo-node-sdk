@@ -216,15 +216,15 @@ const makeMethod = function (config) {
       'Cache-Control': 'no-cache',
       'Accept': 'application/json'
     },
-    //json: true
+    json: true
   }
 
   if (config.send_json) {
     httpConfig.headers['Content-Type'] = httpConfig.headers['Accept'] // 'application/json'
-    //httpConfig.form = false
+    httpConfig.form = false
   } else if (config.send_form) {
     httpConfig.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-    //httpConfig.form = true
+    httpConfig.form = true
   }
 
   return function (requestParams = {}) {
@@ -260,8 +260,8 @@ const makeMethod = function (config) {
     }
 
     let reqVerb = config.method.toLowerCase()
-    httpConfig.body = JSON.stringify(httpConfig.body);
-    return this.httpBaseClient[reqVerb](this.httpClientBaseOptions.baseUrl + pathname, httpConfig)
+    console.log(pathname)
+    return this.httpBaseClient[reqVerb](pathname, httpConfig)
   }
 }
 

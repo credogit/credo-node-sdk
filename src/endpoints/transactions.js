@@ -5,9 +5,9 @@ module.exports = {
     Trasactions
     @param: transRef(required)
   */
-  getbyRef: {
+  verifyTransaction: {
     method: 'GET',
-    path: '/paymentrequest/{:transRef}',
+    path: `/transactions​/{transRef}​/verify`,
     send_json: false,
     params: null,
     route_params: { transRef: String }

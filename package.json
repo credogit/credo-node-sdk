@@ -1,6 +1,6 @@
 {
   "name": "credo-node",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "A NodeJS wrapper for Credo Payments API",
   "main": "index.js",
   "scripts": {
