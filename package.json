@@ -1,6 +1,6 @@
 {
-  "name": "credo-node",
-  "version": "0.0.3",
+  "name": "credo-nodejs",
+  "version": "0.0.4",
   "description": "A NodeJS wrapper for Credo Payments API",
   "main": "index.js",
   "scripts": {
@@ -14,8 +14,8 @@
   "author": "Moses Bassey <moses.bassey.e@gmail.com> (https://twitter.com/moses_ekwere)",
   "license": "MIT",
   "dependencies": {
-    "got": "^11.8.0",
-    "lodash": "^4.17.20"
+    "got": "^11.8.1",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {},
   "repository": {

@@ -28,7 +28,7 @@ let API_KEY_SECRET = ""
 
 const environment = process.env.NODE_ENV
 
-const credo = new Credo(APIKEY, environment)
+const credo = new Credo(API_KEY, environment)
 
 credo.initiatePayments({
   amount: 100,

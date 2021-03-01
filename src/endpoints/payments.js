@@ -3,7 +3,7 @@
 module.exports = {
   /*
     Initiate Payments
-    @param: currency(required), reason, amount(required), paymentOptions(required), transRef(required), customerEmail(required), redirectUrl(required), customerPhoneNo(required)
+    @param: currency(required), amount(required), paymentOptions(required), transRef(required), customerEmail(required), redirectUrl(required), customerPhoneNo(required)
   */
   initiatePayments: {
     method: 'POST',
@@ -18,7 +18,7 @@ module.exports = {
     Card Payments
     @param: expiryMonth(required), securityCode(required),  paymentSlug(required), expiryYear(required), orderAmount(required), orderCurrency(required), orderCurrency(required), transRef(required), customerName(required), customerEmail(required), customerPhoneNo(required)
   */
-  cardThirdParty: {
+  thirdPartyPay: {
     method: 'POST',
     path: '/payments/card/third-party/pay',
     params: {expiryMonth$: Number, securityCode$: Number, paymentSlug$: String, expiryYear$: Number, orderAmount$: Number, orderCurrency$: String, transRef$: String, cardNumber$: String, customerEmail$: String, customerName$: String, customerPhoneNo$: String},
@@ -40,7 +40,7 @@ module.exports = {
   },
   /*
     Make Payments
-    @param: currency(required), reason, paymentSlug(required), amount(required), paymentOptions(required), currency, transRef(required), customerName(required), customerEmail(required), redirectUrl(required), customerPhoneNo(required)
+    @param: currency(required), paymentSlug(required), amount(required), paymentOptions(required), currency, transRef(required), customerName(required), customerEmail(required), redirectUrl(required), customerPhoneNo(required)
   */
   pay:{
     method: 'POST',
