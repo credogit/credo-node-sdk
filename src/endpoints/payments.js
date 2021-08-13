@@ -11,7 +11,6 @@ module.exports = {
     params: {amount$: Number, currency$: String, transRef$: String, paymentOptions$: String, customerEmail$: String, customerName$: String, redirectUrl$: String, customerPhoneNo$: String},
     send_json: true, 
     param_defaults: null,
-    //param_defaults: {$source: 'balance', currency: 'NGN' },
     route_params: null
   },
   /*
@@ -21,7 +20,7 @@ module.exports = {
   thirdPartyPay: {
     method: 'POST',
     path: '/payments/card/third-party/pay',
-    params: {expiryMonth$: Number, securityCode$: Number, paymentSlug$: String, expiryYear$: Number, orderAmount$: Number, orderCurrency$: String, transRef$: String, cardNumber$: String, customerEmail$: String, customerName$: String, customerPhoneNo$: String},
+    params: {expiryMonth$: String, securityCode$: String, paymentSlug$: String, expiryYear$: String, orderAmount$: Number, orderCurrency$: String, transRef$: String, cardNumber$: String, customerEmail$: String, customerName$: String, customerPhoneNo$: String},
     send_json: true,
     param_defaults: null,
     route_params: null

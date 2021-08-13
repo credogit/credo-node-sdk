@@ -7,9 +7,9 @@ module.exports = {
   */
   verifyTransaction: {
     method: 'GET',
-    path: `/transactions​/{transRef}​/verify`,
+    path: `/transactions/{transRef}/verify`,
     send_json: false,
     params: null,
-    route_params: { transRef: String }
+    route_params: {transRef: String }
   }
 }

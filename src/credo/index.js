@@ -4,31 +4,13 @@ const got = require('got')
 const querystring = require('querystring')
 const _ = require('lodash')
 const payments = require('../endpoints/payments.js')
-const transactions = require('../endpoints/payments.js')
+const transactions = require('../endpoints/transactions.js')
 
 /* Any param with '$' at the end is a REQUIRED param both for request body param(s) and request route params */
 const apiEndpoints = Object.assign(
   {},
   payments,
   transactions
-  // customers,
-  // disputes,
-  // transactions,
-  // subaccounts,
-  // plans,
-  // pages,
-  // products,
-  // balanceHistory,
-  // refunds,
-  // charges,
-  // invoices,
-  // transfers,
-  // verifications,
-  // miscellaneous,
-  // settlements,
-  // subscriptions,
-  // transferRecipients,
-  // controlPanelForSessions
 )
 
 /*!

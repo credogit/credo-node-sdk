@@ -21,7 +21,7 @@ This project provides an easy-to-use object-oriented API to consume endpoints on
 ```js
 
 
-let Credo = require('credo')
+let Credo = require('credo-node')
 
 let API_KEY = ""
 let API_KEY_SECRET = ""
@@ -30,7 +30,7 @@ const environment = process.env.NODE_ENV
 
 const credo = new Credo(API_KEY, environment)
 
-credo.initiatePayments({
+let initiate = await credo.initiatePayments({
   amount: 100,
   currency: "NGN",
   redirectUrl: "https://mywebsites.com/callback",
@@ -39,19 +39,36 @@ credo.initiatePayments({
   customerEmail: "customer@something.com",
   customerName: "John Doe",
   customerPhoneNo: "+234 813 000 000"
-}).then(data => {
-  //do payments here
-}, err => {
-  //throw error here
 })
+console.log(initiate)
 
 
-//Create new credo instance to verify transaction using secret key
-const credoTransaction = new Credo(API_KEY_SECRET, environment)
-
-let verifyTransaction = await credoTransaction.verifyTransaction({transReference: "ref:11111"})
-
+//Verify a transaction direct_charge
+let verifyTransaction = await credo.verifyTransaction({
+  transRef: "ref:11111"
+})
 console.log(verifyTransaction)
+
+let verifyCardNumber = await credo.verifyCardNumber({
+  orderCurrency: "NGN", 
+  paymentSlug:"pIEiYn8xxxxxxxxxxxxx", 
+  cardNumber: "4242424242424242"
+})
+console.log(verifyCardNumber)
+
+let cardThirdParty = await credo.cardThirdParty({
+  orderCurrency: "NGN", 
+  paymentSlug:"pIEiYn8xxxxxxxxxxxxx", 
+  cardNumber: "4242424242424242"
+})
+console.log(cardThirdParty)
+
+let pay = await credo.pay({
+  orderCurrency: "NGN", 
+  paymentSlug:"pIEiYn8xxxxxxxxxxxxx", 
+  cardNumber: "4242424242424242"
+})
+console.log(pay)
 
 
 ```
