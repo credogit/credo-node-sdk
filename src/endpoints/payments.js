@@ -15,12 +15,12 @@ module.exports = {
   },
   /*
     Card Payments
-    @param: expiryMonth(required), securityCode(required),  paymentSlug(required), expiryYear(required), orderAmount(required), orderCurrency(required), orderCurrency(required), transRef(required), customerName(required), customerEmail(required), customerPhoneNo(required)
+    @param: expiryMonth(required), securityCode(required), expiryYear(required), orderAmount(required), orderCurrency(required), orderCurrency(required), transRef(required), customerName(required), customerEmail(required), customerPhoneNo(required)
   */
   thirdPartyPay: {
     method: 'POST',
     path: '/payments/card/third-party/pay',
-    params: {expiryMonth$: String, securityCode$: String, paymentSlug$: String, expiryYear$: String, orderAmount$: Number, orderCurrency$: String, transRef$: String, cardNumber$: String, customerEmail$: String, customerName$: String, customerPhoneNo$: String},
+    params: {expiryMonth$: String, securityCode$: String, expiryYear$: String, orderAmount$: Number, orderCurrency$: String, transRef$: String, cardNumber$: String, customerEmail$: String, customerName$: String, customerPhoneNo$: String},
     send_json: true,
     param_defaults: null,
     route_params: null
@@ -39,12 +39,12 @@ module.exports = {
   },
   /*
     Make Payments
-    @param: currency(required), paymentSlug(required), amount(required), paymentOptions(required), currency, transRef(required), customerName(required), customerEmail(required), redirectUrl(required), customerPhoneNo(required)
+    @param: currency(required), amount(required), paymentOptions(required), currency, transRef(required), customerName(required), customerEmail(required), redirectUrl(required), customerPhoneNo(required)
   */
   pay:{
     method: 'POST',
     path: '/payments/card/third-party/3ds-pay',
-    params: {amount$: Number, paymentSlug$: String, currency$: String, transRef$: String, paymentOptions$: String, customerEmail$: String, customerName$: String, redirectUrl$: String, customerPhoneNo$: String},
+    params: {amount$: Number, currency$: String, transRef$: String, paymentOptions$: String, customerEmail$: String, customerName$: String, redirectUrl$: String, customerPhoneNo$: String},
     send_json: true,
     param_defaults: null,
     route_params: null

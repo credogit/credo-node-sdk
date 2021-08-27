@@ -154,8 +154,9 @@ const setInputValues = (config, inputs) => {
   if (config.param_defaults) {
     inputs = Object.assign({}, config.param_defaults, inputs)
   }
-
+  
   for (var input in config.params) {
+
     if (config.params.hasOwnProperty(input)) {
       let param = input.replace('$', '')
       let _input = inputs[param]

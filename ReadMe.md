@@ -21,7 +21,7 @@ This project provides an easy-to-use object-oriented API to consume endpoints on
 ```js
 
 
-let Credo = require('credo-node')
+let Credo = require('credo')
 
 let API_KEY = ""
 let API_KEY_SECRET = ""
@@ -30,7 +30,7 @@ const environment = process.env.NODE_ENV
 
 const credo = new Credo(API_KEY, environment)
 
-let initiate = await credo.initiatePayments({
+credo.initiatePayments({
   amount: 100,
   currency: "NGN",
   redirectUrl: "https://mywebsites.com/callback",
@@ -38,37 +38,63 @@ let initiate = await credo.initiatePayments({
   paymentOptions: "CARD,BANK,USSD",
   customerEmail: "customer@something.com",
   customerName: "John Doe",
-  customerPhoneNo: "+234 813 000 000"
+  customerPhoneNo: "+23481300000"
+}).then(data => {
+  console.log(data)
 })
-console.log(initiate)
 
 
 //Verify a transaction direct_charge
-let verifyTransaction = await credo.verifyTransaction({
+credo.verifyTransaction({
   transRef: "ref:11111"
 })
-console.log(verifyTransaction)
 
-let verifyCardNumber = await credo.verifyCardNumber({
+
+credo.thirdPartyPay({
+  expiryMonth: "01", 
+  securityCode: "111", 
+  expiryYear: "22", 
+  orderAmount: 1000, 
+  orderCurrency: "NGN", 
+  transRef: "748rbri4823ruoqedb9h435", 
+  cardNumber: "4242424242424242", 
+  customerEmail: "acompany@something.com", 
+  customerName: "John Doe", 
+  customerPhoneNo: "09000000000"
+}).then(data => {
+  console.log(data)
+}, err => {
+  console.log(err)
+})
+
+
+
+credo.pay({
+  amount: 1000, 
+  currency: "NGN", 
+  transRef: "748389842939e3", 
+  paymentOptions: "CARD", 
+  customerEmail: "acompany@something.com", 
+  customerName: "John Doe", 
+  redirectUrl: "http://localhost/go", 
+  customerPhoneNo: "09000000000"
+}).then(data => {
+  console.log(data)
+}, err => {
+  console.log(err)
+})
+
+
+credo.verifyCardNumber({
   orderCurrency: "NGN", 
   paymentSlug:"pIEiYn8xxxxxxxxxxxxx", 
   cardNumber: "4242424242424242"
+}).then(data => {
+  console.log(data)
+}, err => {
+  console.log(err)
 })
-console.log(verifyCardNumber)
 
-let cardThirdParty = await credo.cardThirdParty({
-  orderCurrency: "NGN", 
-  paymentSlug:"pIEiYn8xxxxxxxxxxxxx", 
-  cardNumber: "4242424242424242"
-})
-console.log(cardThirdParty)
-
-let pay = await credo.pay({
-  orderCurrency: "NGN", 
-  paymentSlug:"pIEiYn8xxxxxxxxxxxxx", 
-  cardNumber: "4242424242424242"
-})
-console.log(pay)
 
 
 ```
