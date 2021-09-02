@@ -104,23 +104,17 @@ const isNumeric = (value) => {
 }
 
 const setPathName = (config, values) => {
-  return config.path.replace(/\{:([\w]+)\}/g, function (
-    match,
-    string,
-    offset) {
-    let _value = values[string] || (isTypeOf(config.alternate_route_params_keymap, 'object') ? values[config.alternate_route_params_keymap[string]] : false)
-    if (config.route_params_numeric === true) {
-      if (!isNumeric(_value)) {
-        return null
-      }
-    }
-    return isTypeOf(
-      _value,
-      (config.route_params[string] || String)
-    )
-      ? _value
-      : null
-  })
+
+  if(typeof values !== 'object') {
+    throw new Error('stuff');
+  }
+  let urlString = config.path;
+
+  Object.entries(values).forEach(([ key, value ]) => {
+    urlString = urlString.replace(`{${key}}`, value);
+  });
+  
+  return urlString;
 }
 
 const _jsonify = (data) => {
@@ -213,7 +207,7 @@ const makeMethod = function (config) {
   return function (requestParams = {}) {
     let pathname = config.path
     let payload = false
-
+    
     if (!(requestParams instanceof Object)) {
       throw new TypeError('Argument: [ requestParam(s) ] Should Be An Object Literal')
     }
@@ -244,6 +238,7 @@ const makeMethod = function (config) {
 
     let reqVerb = config.method.toLowerCase()
     httpConfig.body = JSON.stringify(httpConfig.body);
+
     return this.httpBaseClient[reqVerb](this.httpClientBaseOptions.baseUrl + pathname, httpConfig)
   }
 }
