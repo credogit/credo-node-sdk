@@ -84,7 +84,6 @@ credo.pay({
   console.log(err)
 })
 
-
 credo.verifyCardNumber({
   orderCurrency: "NGN", 
   paymentSlug:"pIEiYn8xxxxxxxxxxxxx", 
