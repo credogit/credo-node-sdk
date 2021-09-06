@@ -123,4 +123,4 @@ MIT
 [npm-url]: https://www.npmjs.com/package/credo-node
 
 [travis-image]: https://img.shields.io/travis/stitchng/paystack/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/github/Moses-Bassey/Credo-node
+[travis-url]: https://travis-ci.org/github.com/credogit/credo-node-sdk
